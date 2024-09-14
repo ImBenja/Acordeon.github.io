@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  /*COLORES*/
+
+  --White: hsl(0, 0%, 100%);
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  max-width: 1100px;
+  margin: 5rem auto;
+  background-color: var(--Light-pink);
+  font-family: "Work Sans";
+  overflow-x: hidden;
+}
+
+picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+picture img {
+  height: 335px;
+}
+
+.container {
+  position: relative;
+  background-color: var(--White);
+  width: 55%;
+  margin: 2rem auto;
+  padding: 1rem 2rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px black;
+}
+
+.header {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header .title {
+  font-weight: bold;
+  color: var(--Dark-purple);
+  font-size: 3.5rem;
+}
+
+.accordion-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accordion {
+  color: var(--Dark-purple);
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  font-size: 1.1rem;
+  margin-top: 2.5rem;
+}
+
+.active,
+.accordion:hover {
+  color: rgb(172, 34, 241);
+}
+
+.accordion::after {
+  content: url("assets/img/icon-plus.svg");
+  float: right;
+}
+
+.active::after {
+  content: url("assets/img/icon-minus.svg");
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.panel p {
+  color: #444;
+  opacity: 80%;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.custom-hr {
+  border: 0;
+  height: 1px;
+  width: 94%;
+  background-color: #575757e4;
+  margin: 20px 0;
+  opacity: 30%;
+}
+
+.icon {
+  position: absolute;
+  right: 10%;
+  margin-top: 1.3rem;
+}
+
+.icon.minus {
+  display: none;
+}
+
+.accordion-container.active .icon.plus {
+  display: none;
+}
+
+.accordion-container.active .icon.minus {
+  display: block;
+}
+
+@media (max-width: 800px) {
+  body {
+    margin: 12rem auto;
+  }
+  .container {
+    width: 100%;
+    margin: 0 0 0 4rem;
+  }
+
+  .accordion {
+    font-size: 1.4rem;
+    width: 88%;
+  }
+
+  .header .title {
+    font-size: 2.3rem;
+  }
+
+  .panel p {
+    font-size: 18px;
+  }
+}
